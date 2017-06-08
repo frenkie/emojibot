@@ -1,0 +1,1 @@
+web: DEBUG=sockit,message-engine node server.js

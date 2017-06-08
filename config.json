@@ -1,0 +1,16 @@
+{
+  "messages": {
+    "neutral": {},
+    "attention": {},
+    "surprised": {},
+    "sad": {},
+    "angry": {},
+    "hope": {},
+    "excitement": {},
+    "happy": {},
+    "shy": {},
+    "lookleft": {},
+    "lookmid": {},
+    "lookright": {}
+  }
+}

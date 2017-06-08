@@ -25,10 +25,12 @@ fs.stat('./config.json', function ( err, stats ) {
 
 
         var adminRouter = require('./routes/admin');
+        var emojiRouter = require('./routes/emoji');
         var vendorRouter = require('./routes/vendor');
         var configRouter = require('./routes/config');
 
         app.use( adminRouter );
+        app.use( emojiRouter );
         app.use( vendorRouter );
         app.use( configRouter );
 
