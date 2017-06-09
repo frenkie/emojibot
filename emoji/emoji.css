@@ -1,4 +1,5 @@
 body {
+    background-color: #000;
     color: #fff;
 }
 
@@ -25,6 +26,7 @@ body {
 .emoji-container--hope { background-color: #000;}
 .emoji-container--excitement { background-color: #000;}
 .emoji-container--happy { background-color: #f1de10;}
+.emoji-container--hide { display: none; }
 
 
 .emoji-bot {

@@ -15,7 +15,7 @@ $(function () {
     ] );
 
 
-    ['neutral', 'attention', 'surprised',
+    ['hide', 'neutral', 'attention', 'surprised',
     'sad','angry', 'hope', 'excitement', 'happy', 'shy', 'lookleft', 'lookright'
     ].forEach( function ( emotion ) {
 
