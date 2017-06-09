@@ -13,25 +13,25 @@ body {
     align-items: center;
     justify-content: center;
 
-    transition: background-color 100ms ease-out;
+    transition: background-color 250ms ease-out;
     background-color: #000;
 }
 
 .emoji-container--neutral { background-color: #000;}
 .emoji-container--attention { background-color: #000;}
 .emoji-container--surprised { background-color: #000;}
-.emoji-container--sad { background-color: #000;}
+.emoji-container--sad { background-color: #9ecee2;}
 .emoji-container--angry { background-color: #ff0000;}
 .emoji-container--hope { background-color: #000;}
 .emoji-container--excitement { background-color: #000;}
-.emoji-container--happy { background-color: #000;}
+.emoji-container--happy { background-color: #f1de10;}
 
 
 .emoji-bot {
     position: relative;
     width: 600px;
     height: 460px;
-    background-color: rgba( 255, 255, 255, 0.2 );
+
 }
 
 .emoji-eye {
@@ -39,7 +39,7 @@ body {
     width: 30%;
     height: 0;
 
-    transition: all 100ms ease-out;
+    transition: all 250ms ease-out;
 }
 
 .emoji-eye--left {
@@ -61,6 +61,7 @@ body {
     transform: translateY(-50%);
     height: 200px;
 
+    transition: background-image 300ms linear;
     background-image: linear-gradient(transparent 50%, rgba(15,200,250,.9) 50%);
     background-size: 10px 10px;
 
@@ -114,25 +115,203 @@ body {
 /*** Animations - Neutral *****/
 
 
+/*** Animations - Look left *****/
+.emoji-container--lookleft .emoji-eye {
+    width: 30%;
+}
+
+.emoji-container--lookleft .emoji-eye--left {
+    top: 40%;
+    left: 5%;
+}
+
+.emoji-container--lookleft .emoji-eye--right {
+    top: 40%;
+    left: 39%;
+}
+
+.emoji-container--lookleft .emoji-eye-ball {
+    height: 200px;
+    animation-delay: 1ms;
+    /*animation-name: blinker;*/
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.emoji-container--lookleft .emoji-eye--left .emoji-eye-ball {
+    animation-name: blinkertall;
+    height: 250px;    
+}
+
+@keyframes blinkertall {
+    94% {
+        height: 250px;
+    }
+    97% {
+        height: 0;
+    }
+    100% {
+        height: 250px;
+    }
+}
+
+/*** Animations - Look left *****/
+
+
+/*** Animations - Look right *****/
+.emoji-container--lookright .emoji-eye {
+    width: 30%;
+}
+
+.emoji-container--lookright .emoji-eye--left {
+    top: 40%;
+    left: 31%;
+}
+
+.emoji-container--lookright .emoji-eye--right {
+    top: 40%;
+    left: 65%;
+}
+
+.emoji-container--lookright .emoji-eye-ball {
+    height: 200px;
+    /*animation-name: blinker;*/
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.emoji-container--lookright .emoji-eye--right .emoji-eye-ball {
+    animation-name: blinkertall;
+    height: 250px;    
+}
+/*** Animations - Look right *****/
+
+
 /*** Animations - Attention *****/
 
-    /* big eyes */
+    /* neutral, just sound */
+.emoji-container--attention .emoji-eye {
+    width: 30%;
+}
 
-    /* shift left right anim / follow */
+.emoji-container--attention .emoji-eye--left {
+    top: 40%;
+    left: 18%;
+}
+
+.emoji-container--attention .emoji-eye--right {
+    top: 40%;
+    left: 52%;
+}
+
+.emoji-container--attention .emoji-eye-ball {
+    height: 200px;
+    animation-name: blinker;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
 
 /*** Animations - Attention *****/
 
 
 /*** Animations - Surprised *****/
 
-    /* lifting eyebrow */
+.emoji-container--surprised .emoji-eye-ball {
+    height: 200px;
+    animation-duration: 250ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+}
+
+.emoji-container--surprised .emoji-eye--left .emoji-eye-ball {
+    animation-name: surprised-left;
+}
+
+.emoji-container--surprised .emoji-eye--right .emoji-eye-ball {
+    animation-name: surprised-right;
+}
+
+
+    /** surprised animation */
+@keyframes surprised-left {
+    0% {
+    }
+    100% {
+        height: 140px;
+    }
+}
+
+@keyframes surprised-right {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    100% {
+        height: 140px;
+        clip-path: polygon(0 58%, 100% 37%, 100% 100%, 0% 100%);
+    }
+}
 
 /*** Animations - Surprised *****/
 
 
 /*** Animations - Sad *****/
 
-    /* down eyes */
+.emoji-container--sad .emoji-eye {
+    width: 30%;
+}
+
+.emoji-container--sad .emoji-eye--left {
+    top: 60%;
+    left: 18%;
+}
+
+.emoji-container--sad .emoji-eye--right {
+    top: 60%;
+    left: 52%;
+}
+
+
+/* frown both eyes */
+.emoji-container--sad .emoji-eye-ball {
+    height: 200px;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+
+    background-image: linear-gradient(transparent 50%, rgba(0,0,0,.9) 50%);
+}
+
+.emoji-container--sad .emoji-eye--left .emoji-eye-ball {
+    animation-name: sad-left;
+}
+
+.emoji-container--sad .emoji-eye--right .emoji-eye-ball {
+    animation-name: sad-right;
+}
+
+
+    /** sad animation */
+@keyframes sad-left {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    100% {
+        clip-path: polygon(0 73%, 100% 58%, 100% 100%, 0% 100%);
+    }
+}
+
+@keyframes sad-right {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    100% {
+        clip-path: polygon(0 58%, 100% 73%, 100% 100%, 0% 100%);
+    }
+}
 
 /*** Animations - Sad *****/
 
@@ -161,6 +340,8 @@ body {
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
     animation-iteration-count: 1;
+
+    background-image: linear-gradient(transparent 50%, rgba(0,0,0,.9) 50%);
 }
 
 .emoji-container--angry .emoji-eye--left .emoji-eye-ball {
@@ -198,19 +379,115 @@ body {
 
 /*** Animations - Hope *****/
 
-    /* once from small to big eyes */
+.emoji-container--hope .emoji-eye {
+    width: 40%;
+}
+
+.emoji-container--hope .emoji-eye--left {
+    top: 30%;
+    left: 8%;
+}
+
+.emoji-container--hope .emoji-eye--right {
+    top: 30%;
+    left: 52%;
+}
+
+.emoji-container--hope .emoji-eye--left .emoji-eye-ball,
+.emoji-container--hope .emoji-eye--right .emoji-eye-ball {
+    height: 250px;
+}
 
 /*** Animations - hope *****/
 
 
 /*** Animations - Excitement *****/
 
-    /* shaking eyes position */
+.emoji-container--excitement .emoji-eye {
+    width: 40%;
+
+    animation-duration: 300ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: happy-movement;
+}
+
+.emoji-container--excitement .emoji-eye--left {
+    top: 30%;
+    left: 8%;
+}
+
+.emoji-container--excitement .emoji-eye--right {
+    top: 30%;
+    left: 52%;
+}
+
+.emoji-container--excitement .emoji-eye--left .emoji-eye-ball,
+.emoji-container--excitement .emoji-eye--right .emoji-eye-ball {
+    height: 250px;
+}
 
 /*** Animations - excitement *****/
 
 /*** Animations - Happy *****/
 
-    /*  */
+
+.emoji-container--happy .emoji-eye {
+    width: 30%;
+
+    animation-duration: 300ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: happy-movement;
+}
+
+.emoji-container--happy .emoji-eye--left {
+    top: 40%;
+    left: 18%;
+}
+
+.emoji-container--happy .emoji-eye--right {
+    top: 40%;
+    left: 52%;
+}
+
+
+/* frown both eyes */
+.emoji-container--happy .emoji-eye-ball {
+    height: 200px;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+
+    background-image: linear-gradient(transparent 50%, rgba(0,0,0,.9) 50%);
+}
+
+.emoji-container--happy .emoji-eye-ball {
+    animation-name: happy;
+}
+
+
+    /** happy animation */
+@keyframes happy {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 25%, 0 25%);
+    }
+}
+
+@keyframes happy-movement {
+    0% {
+        top: 40%;
+    }
+    50% {
+        top: 45%;
+    }
+    100% {
+        top: 40%;
+    }
+}
 
 /*** Animations - Happy *****/
