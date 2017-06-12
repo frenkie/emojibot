@@ -14,19 +14,16 @@ $(function () {
         'audio/happy.mp3'
     ] );
 
+    for( var emo in window.config.messages ) {
 
-    ['hide', 'neutral', 'attention', 'surprised',
-    'sad','angry', 'hope', 'excitement', 'happy', 'shy', 'lookleft', 'lookright'
-    ].forEach( function ( emotion ) {
+        (function ( emotion ) {
+            socket.on( emotion, function () {
+                $emojiContainer[0].className = emojiCssPrefix + emotion;
 
-        socket.on( emotion, function () {
-            $emojiContainer[ 0 ].className = emojiCssPrefix + emotion;
-
-            if ( allSounds.has( 'audio/'+ emotion +'.mp3' ) ) {
-                allSounds.play( 'audio/'+ emotion +'.mp3' );
-            }
-        } );
-
-    });
-
+                if ( allSounds.has( 'audio/' + emotion + '.mp3' ) ) {
+                    allSounds.play( 'audio/' + emotion + '.mp3' );
+                }
+            } );
+        })( emo );
+    }
 });
