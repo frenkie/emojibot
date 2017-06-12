@@ -1,5 +1,7 @@
 # emojibot
 
+![screenshot](/emojibot.png?raw=true)
+
 ## install & run
 `npm install` should do the install trick.
 
